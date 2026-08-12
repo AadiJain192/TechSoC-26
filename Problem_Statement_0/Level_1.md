@@ -1,4 +1,4 @@
-# 📦 Level 1 — Counting the Cargo
+# 📦 Level 1 — Counting the Cargo & Capacity
 
 [![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-2ea44f?style=flat-square)](#)
 [![Concepts](https://img.shields.io/badge/Concepts-Variables%20|%20Loops%20|%20Conditions-0d6efd?style=flat-square)](#)
@@ -19,18 +19,21 @@ Now hundreds of cargo ships are waiting outside the port. The port manager has o
 
 ## Your Task
 
-The workers have managed to unload the containers, but they have absolutely no idea how heavy the shipment is.
+The workers have managed to unload the containers, but they have absolutely no idea how heavy the shipment is, nor whether the port actually has enough storage space to handle it!
 
 Write a program that:
 
-1. Reads the **number of containers** `N`.
-2. Reads the **weight of each container**, one per line.
-3. Calculates and prints:
+1. Reads the **maximum storage capacity** of the port `C`.
+2. Reads the **number of containers** `N`.
+3. Reads the **weight of each container**, one per line.
+4. Calculates and prints:
    - **Total shipment weight** — sum of all weights
    - **Average container weight** — total ÷ N
    - **Heaviest container** — maximum weight
    - **Lightest container** — minimum weight
    - **Classification** — `Heavy` if total ≥ 200, otherwise `Light`
+   - **Port Capacity** — the capacity that was input
+   - **Status** — `Shipment can be unloaded` if total weight ≤ capacity, otherwise `Shipment exceeds port capacity`
 
 ---
 
@@ -50,47 +53,23 @@ Write a program that:
 - **Input** shows only the **raw values** you type — just numbers, one per line.
 - **Output** shows what your program should print.
 
-Your program should prompt the user (e.g. `"Enter number of containers: "`), but test cases only show the raw numbers to keep things clean.
-
-**Example — how it works in practice:**
-
-Your terminal looks like:
-```
-Enter number of containers: 3
-Enter weight of container 1: 50
-Enter weight of container 2: 70
-Enter weight of container 3: 60
-
-Total Shipment Weight: 180
-```
-
-But in the test case, we write:
-
-**Input:**
-```
-3
-50
-70
-60
-```
-**Output:**
-```
-Total Shipment Weight: 180
-```
+Your program should prompt the user (e.g. `"Enter capacity: "`), but test cases only show the raw numbers to keep things clean.
 
 ---
 
 ## Input Format
 
 ```
+C
 N
 w1
 w2
 ...
 wN
 ```
-- Line 1: `N` — number of containers (integer, 1 ≤ N ≤ 1000)
-- Lines 2 to N+1: `wi` — weight of the i-th container (integer or decimal)
+- Line 1: `C` — maximum port storage capacity (integer)
+- Line 2: `N` — number of containers (integer, 1 ≤ N ≤ 1000)
+- Lines 3 to N+2: `wi` — weight of the i-th container (integer or decimal)
 
 ## Output Format
 
@@ -100,6 +79,8 @@ Average Container Weight: <value>
 Heaviest Container: <value>
 Lightest Container: <value>
 Classification: <Heavy/Light>
+Port Capacity: <value>
+Status: <Shipment can be unloaded / Shipment exceeds port capacity>
 ```
 
 ---
@@ -112,7 +93,7 @@ Classification: <Heavy/Light>
 | Input / Output | Reading from terminal, printing results |
 | Arithmetic | Sum, division, comparison |
 | Loops | Iterating through N containers |
-| Conditions | Classifying as Heavy or Light |
+| Conditions | Classifying weight and checking against capacity |
 | Min / Max | Finding heaviest and lightest |
 
 ---
@@ -125,21 +106,23 @@ Classification: <Heavy/Light>
 
 **Input:**
 ```
-5
+300
+4
+90
+75
+60
 50
-120
-80
-45
-30
 ```
 
 **Output:**
 ```
-Total Shipment Weight: 325
-Average Container Weight: 65.0
-Heaviest Container: 120
-Lightest Container: 30
+Total Shipment Weight: 275
+Average Container Weight: 68.75
+Heaviest Container: 90
+Lightest Container: 50
 Classification: Heavy
+Port Capacity: 300
+Status: Shipment can be unloaded
 ```
 </details>
 
@@ -149,19 +132,22 @@ Classification: Heavy
 
 **Input:**
 ```
+200
 3
-20
-35
-40
+100
+80
+90
 ```
 
 **Output:**
 ```
-Total Shipment Weight: 95
-Average Container Weight: 31.67
-Heaviest Container: 40
-Lightest Container: 20
-Classification: Light
+Total Shipment Weight: 270
+Average Container Weight: 90.0
+Heaviest Container: 100
+Lightest Container: 80
+Classification: Heavy
+Port Capacity: 200
+Status: Shipment exceeds port capacity
 ```
 </details>
 
@@ -171,6 +157,154 @@ Classification: Light
 
 **Input:**
 ```
+150
+3
+50
+50
+50
+```
+
+**Output:**
+```
+Total Shipment Weight: 150
+Average Container Weight: 50.0
+Heaviest Container: 50
+Lightest Container: 50
+Classification: Light
+Port Capacity: 150
+Status: Shipment can be unloaded
+```
+</details>
+
+<details>
+<summary><strong>🧪 Test Case 4</strong></summary>
+<br>
+
+**Input:**
+```
+150
+3
+50
+50
+51
+```
+
+**Output:**
+```
+Total Shipment Weight: 151
+Average Container Weight: 50.33
+Heaviest Container: 51
+Lightest Container: 50
+Classification: Light
+Port Capacity: 150
+Status: Shipment exceeds port capacity
+```
+</details>
+
+<details>
+<summary><strong>🧪 Test Case 5</strong></summary>
+<br>
+
+**Input:**
+```
+500
+1
+100
+```
+
+**Output:**
+```
+Total Shipment Weight: 100
+Average Container Weight: 100.0
+Heaviest Container: 100
+Lightest Container: 100
+Classification: Light
+Port Capacity: 500
+Status: Shipment can be unloaded
+```
+</details>
+
+<details>
+<summary><strong>🧪 Test Case 6</strong></summary>
+<br>
+
+**Input:**
+```
+50
+1
+300
+```
+
+**Output:**
+```
+Total Shipment Weight: 300
+Average Container Weight: 300.0
+Heaviest Container: 300
+Lightest Container: 300
+Classification: Heavy
+Port Capacity: 50
+Status: Shipment exceeds port capacity
+```
+</details>
+
+<details>
+<summary><strong>🧪 Test Case 7</strong></summary>
+<br>
+
+**Input:**
+```
+10000
+3
+10
+20
+30
+```
+
+**Output:**
+```
+Total Shipment Weight: 60
+Average Container Weight: 20.0
+Heaviest Container: 30
+Lightest Container: 10
+Classification: Light
+Port Capacity: 10000
+Status: Shipment can be unloaded
+```
+</details>
+
+<details>
+<summary><strong>🧪 Test Case 8</strong></summary>
+<br>
+
+**Input:**
+```
+1000
+4
+100
+100
+100
+100
+```
+
+**Output:**
+```
+Total Shipment Weight: 400
+Average Container Weight: 100.0
+Heaviest Container: 100
+Lightest Container: 100
+Classification: Heavy
+Port Capacity: 1000
+Status: Shipment can be unloaded
+```
+</details>
+
+<details>
+<summary><strong>🧪 Test Case 9</strong></summary>
+<br>
+
+**Input:**
+```
+500
 2
 100
 100
@@ -183,15 +317,18 @@ Average Container Weight: 100.0
 Heaviest Container: 100
 Lightest Container: 100
 Classification: Heavy
+Port Capacity: 500
+Status: Shipment can be unloaded
 ```
 </details>
 
 <details>
-<summary><strong>🧪 Test Case 4</strong></summary>
+<summary><strong>🧪 Test Case 10</strong></summary>
 <br>
 
 **Input:**
 ```
+200
 2
 100
 99
@@ -204,58 +341,18 @@ Average Container Weight: 99.5
 Heaviest Container: 100
 Lightest Container: 99
 Classification: Light
+Port Capacity: 200
+Status: Shipment can be unloaded
 ```
 </details>
 
 <details>
-<summary><strong>🧪 Test Case 5</strong></summary>
+<summary><strong>🧪 Test Case 11</strong></summary>
 <br>
 
 **Input:**
 ```
-1
-250
-```
-
-**Output:**
-```
-Total Shipment Weight: 250
-Average Container Weight: 250.0
-Heaviest Container: 250
-Lightest Container: 250
-Classification: Heavy
-```
-</details>
-
-<details>
-<summary><strong>🧪 Test Case 6</strong></summary>
-<br>
-
-**Input:**
-```
-4
-50
-50
-50
-50
-```
-
-**Output:**
-```
-Total Shipment Weight: 200
-Average Container Weight: 50.0
-Heaviest Container: 50
-Lightest Container: 50
-Classification: Heavy
-```
-</details>
-
-<details>
-<summary><strong>🧪 Test Case 7</strong></summary>
-<br>
-
-**Input:**
-```
+100
 3
 1
 1
@@ -269,15 +366,18 @@ Average Container Weight: 1.0
 Heaviest Container: 1
 Lightest Container: 1
 Classification: Light
+Port Capacity: 100
+Status: Shipment can be unloaded
 ```
 </details>
 
 <details>
-<summary><strong>🧪 Test Case 8</strong></summary>
+<summary><strong>🧪 Test Case 12</strong></summary>
 <br>
 
 **Input:**
 ```
+300
 6
 10
 20
@@ -294,6 +394,8 @@ Average Container Weight: 35.0
 Heaviest Container: 60
 Lightest Container: 10
 Classification: Heavy
+Port Capacity: 300
+Status: Shipment can be unloaded
 ```
 </details>
 
