@@ -15,19 +15,18 @@ The committee investigating the software failure has finally finished its report
 
 ## Your Task
 
-Build on your Level 2 program. **Choose any three** of the following features and add them:
+Build on your Level 1 program. **Implement** as many of the following features as possible:
 
 | # | Feature | Description |
 |---|---|---|
-| 1 | **Sorted Display** | Display container weights in sorted order |
+| 1 | **Sorted Display** | Display container weights in sorted order without using sort function |
 | 2 | **Multi-Ship Processing** | Process multiple ships without restarting the program |
 | 3 | **Bar Chart** | Draw a bar chart using `*` characters |
 | 4 | **Save Report** | Save the shipment report to a file |
 | 5 | **Read from File** | Read shipment data from a file |
 | 6 | **Search** | Search for a container by weight |
-| 7 | **Nth Heaviest** | Find the Nth heaviest container |
-| 8 | **Menu Interface** | Add a menu-driven interface |
-| 9 | **Your Own Feature** | Add your own creative feature |
+| 7 | **Kth Heaviest** | Find the Kth heaviest container |
+| 8 | **Your Own Feature** | Add your own creative feature |
 
 ---
 
@@ -48,7 +47,6 @@ Same as previous levels:
 | Sorting | Ordering containers by weight |
 | File Handling | Reading from and writing to files |
 | Functions | Modular, reusable code blocks |
-| Menus | User-driven navigation |
 
 ---
 
@@ -378,7 +376,7 @@ Container 5 has weight 30
 </details>
 
 <details>
-<summary><strong>Feature 7 — Nth Heaviest</strong></summary>
+<summary><strong>Feature 7 — Kth Heaviest</strong></summary>
 <br>
 
 **Input:**
@@ -449,69 +447,6 @@ Invalid input: N must be at least 1.
 **Output:**
 ```
 Invalid input: N must be at least 1.
-```
-</details>
-
-<details>
-<summary><strong>Feature 8 — Menu Interface</strong></summary>
-<br>
-
-Your program prints a menu, reads the user's choice, performs the action, and repeats until exit.
-
-**Output (menu):**
-```
-CargoPort Management System
-
-1. Enter container data
-2. View shipment report
-3. Sort containers
-4. Search container
-5. Find Nth heaviest
-6. Save report to file
-7. Load data from file
-8. Exit
-```
-
-**Input:**
-```
-2
-```
-
-**Output:**
-```
-Total Shipment Weight: 325
-Average Container Weight: 65.0
-Heaviest Container: 120
-Lightest Container: 30
-Classification: Heavy
-```
-
----
-
-**🧪 Test Case 2:**
-
-**Input:**
-```
-9
-```
-
-**Output:**
-```
-Invalid option. Please select 1-8.
-```
-
----
-
-**🧪 Test Case 3:**
-
-**Input:**
-```
-8
-```
-
-**Output:**
-```
-Exiting CargoPort Management System.
 ```
 </details>
 
