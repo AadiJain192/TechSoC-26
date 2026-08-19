@@ -13,7 +13,7 @@
 ##  Conceptual Learning
 
 ### **New Concepts I Discovered**
-- ** Arrays in c++:** They are useful for storing multiple values with same data type.
+- ** Arrays in c++: ** They are useful for storing multiple values with same data type.
 
 ### **How I Applied These Concepts**
 I used array to store and use the multiple weights entered by the user.
