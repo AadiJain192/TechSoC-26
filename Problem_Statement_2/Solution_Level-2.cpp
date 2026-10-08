@@ -7,6 +7,12 @@ using namespace std;
 
 int i, j;
 
+int Random(int a, int b) {
+    static random_device rand;
+    static mt19937 generate_rand(rand());
+    uniform_int_distribution<int> rand_range(a, b);
+    return rand_range(generate_rand);
+}
 
 class Bender {
     public:
@@ -100,10 +106,7 @@ class Duel {
 
         void Attack_Bender(Bender &b1, Bender &b2) {
 
-            random_device rand;
-            mt19937 generate_rand(rand());
-            uniform_int_distribution<int> critical_range(1, 10);
-            int critical_rand = critical_range(generate_rand);
+            int critical_rand = Random(1, 10);
             if (critical_rand == 1) {
                 critical_multiplier = 2;
                 critical_hits++;
@@ -124,14 +127,10 @@ class Duel {
         void turn(Bender &b1, Bender &b2) {
             turns++;
 
-            random_device rand;
-            mt19937 generate_rand(rand());
-            uniform_int_distribution<int> move_range(0, 3);
-            uniform_int_distribution<int> attacker_range(1, 2);
-            move = move_range(generate_rand);
+            move = Random(0, 3);
 
             if (b1.speed == b2.speed) {
-                attacker = attacker_range(generate_rand);
+                attacker = Random(1, 2);
             }
             else if (b1.speed > b2.speed) {
                 if (turns % 2 == 1) attacker = 1;
@@ -155,7 +154,7 @@ class Duel {
             if (b1.type_multiplier == 2) {
                 cout << "Super Effective! (" << b1.element << " is strong against " << b2.element << ")\n";
             }
-            else {
+            else if (b1.type_multiplier == 0.5){
                 cout << "Not very effective ... (" << b1.element << " is weak against " << b2.element << ")\n";
             }
             Attack_Bender(b1, b2);
@@ -188,26 +187,46 @@ bool Bender::is_fainted() {
 string moves[4][2];
 void input(string &n, string &e, int &h, int &a, int &d, int &s) {
     cout << "Name:";
-    cin >> n;
+    cin >> ws;
+    getline(cin, n);
     cout << "Element (Water, Fire, Earth or Air):";
     cin >> e;
     cout << "HP (integer in 1-200):";
     cin >> h;
+    while (h < 1 || h > 200) {
+        cout << "Enter the value in the given range:";
+        cin >> h;
+    }
     cout << "Attack (integer in 1-100):";
     cin >> a;
+    while (a < 1 || a > 100) {
+        cout << "Enter the value in the given range:";
+        cin >> a;
+    }
     cout << "Defense (integer in 1-100):";
     cin >> d;
+    while (d < 1 || d > 100) {
+        cout << "Enter the value in the given range:";
+        cin >> d;
+    }
     cout << "Speed (integer in 1-100):";
     cin >> s;
+    while (s < 1 || s > 100) {
+        cout << "Enter the value in the given range:";
+        cin >> s;
+    }
+
+    int m;
     cout << "Moves:\n";
-     for (i=0; i<4; i++) {
-         cout << "\nMove - " << i+1 << endl;
-         cout << "Name:";
-         cin >> ws;
-         getline(cin, moves[i][0]);
-         cout << "Power Level:";
-         cin >> moves[i][1];
-     }
+    for (int i=0; i<4; i++) {
+        cout << "\nMove - " << i+1 << endl;
+        cout << "Name:";
+        cin >> ws;
+        getline(cin, moves[i][0]);
+        cout << "Power Level:";
+        cin >> m;
+        moves[i][1] = to_string(m);
+    }
 }
 
 int main() {
