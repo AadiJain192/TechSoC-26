@@ -32,7 +32,7 @@ Entropy, information gain, feature selection, tree construction, and prediction 
 
 The core task may use categorical features. Support for continuous numerical features is an optional extension unless specified otherwise by the organizers.
 
-## 5. Optional Extensions
+## 4. Optional Extensions
 
 Participants who finish the core task may implement one or more of the following:
 
@@ -40,7 +40,7 @@ Participants who finish the core task may implement one or more of the following
 - Compare entropy with Gini impurity.
 - Implement pruning to reduce overfitting.
 
-## 7. Goal
+## 5. Goal
 
 Build a Decision Tree classifier that you can explain from its first entropy calculation to its final prediction. The focus is not only on achieving good accuracy, but also on understanding how the model makes decisions and how it generalizes to unseen data.
 
