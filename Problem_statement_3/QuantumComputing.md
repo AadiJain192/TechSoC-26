@@ -2,7 +2,7 @@
 
 ## 📖 Background
 
-Quantum Computing is an emerging field in modern computing, fully based upon Quantum Mechanical phenomenons. While Quantum Computing might seem confusing at first and not make sense at all to you, do not worry. As you get into this field, you will realise that it gets much worse :D
+Quantum Computing is an emerging field in modern computing, fully based upon Quantum Mechanical phenomenons. While Quantum Computing might seem confusing at first and not make sense at all to you, do not worry. As you get into this field, you will realise that it gets much worse, but also, much more fun :D
 
 In this PS, you will be tasked with creating a mathematical simulation representing qubits and the gates upon which they are applied.
 
