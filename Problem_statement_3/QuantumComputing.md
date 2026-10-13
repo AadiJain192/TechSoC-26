@@ -1,8 +1,8 @@
-# ⚛️ Problem 3: Qubit Simulation
+# ⚛️ Qubit Simulation
 
 ## 📖 Background
 
-Quantum Computing is an emerging (already emerged but nobody knows when it did) field in modern computing, fully based upon Quantum Mechanical phenomenons. While Quantum Computing might seem confusing at first and not make sense at all to you, do not worry. As you get into this field, you will realise that nobody else knows what's happening either :D.
+Quantum Computing is an emerging field in modern computing, fully based upon Quantum Mechanical phenomenons. While Quantum Computing might seem confusing at first and not make sense at all to you, do not worry. As you get into this field, you will realise that it gets much worse :D
 
 In this PS, you will be tasked with creating a mathematical simulation representing qubits and the gates upon which they are applied.
 
@@ -78,7 +78,7 @@ For a valid quantum state, the sum of all measurement probabilities must equal `
 - Any Programming Language may be used.
 - Single File containing the Function, mentioned clearly (Helper Function Allowed).
 - Capable of being able to run in your terminal.
-- No external Libraries.
+- You may utilize external libraries only for the  purpose ofmathematical efficiency (Do not utilize dedicated qubit simulation libraries, but for instance, you may utilize numpy in python to make calculation more efficient)
 
 ## Input Format
 
@@ -170,6 +170,4 @@ Only Basics for visualisation, no need to watch through everything. Just watch t
 
 ## Closing Remarks
 
-As stated before, Quantum Computing is nothing too complicated if we look at it mathematically, and is quite easy to understand.
-
-Hopefully this basic introduction will give you an interesting start into the field, especially since further on, there will be much more interesting things to learn.
+As stated before, Quantum Computing is nothing too complicated if we look at it mathematically. We hope this problem serves as a solid foundation and sparks your interest in further exploring quantum information systems.
