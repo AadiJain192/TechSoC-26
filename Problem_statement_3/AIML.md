@@ -32,42 +32,15 @@ Entropy, information gain, feature selection, tree construction, and prediction 
 
 The core task may use categorical features. Support for continuous numerical features is an optional extension unless specified otherwise by the organizers.
 
-## 4. Evaluation
-
-Submissions will be assessed on:
-
-- **Correctness:** The algorithm's core components work as intended.
-- **Generalization:** Performance on unseen data, not just training data.
-- **Robustness:** Appropriate handling of pure nodes, ties, and unseen branches.
-- **Overfitting control:** Effective stopping conditions or tree-depth limits.
-- **Code quality:** Readable, modular, documented implementation.
-- **Reproducibility:** Clear setup and execution instructions.
-
-Report training accuracy, test accuracy, tree depth, and node or leaf count. Use macro F1-score as an additional metric when class imbalance makes it appropriate. Hidden test cases may be used during evaluation.
-
-## 5. Optional Extensions
+## 4. Optional Extensions
 
 Participants who finish the core task may implement one or more of the following:
 
 - Support continuous features using threshold-based splits.
 - Compare entropy with Gini impurity.
 - Implement pruning to reduce overfitting.
-- Explain the decision path for a prediction.
-- Analyze how tree depth affects training and test performance.
 
-## 6. Submission Requirements
-
-Submit a repository or archive containing:
-
-1. Source code for the Decision Tree implementation.
-2. A `README.md` with setup instructions, usage, and design decisions.
-3. An evaluation report with metrics and a brief discussion of results.
-4. A sample run demonstrating training and prediction.
-5. A dependency list, such as `requirements.txt`.
-
-Ensure the project can be run using the instructions in your README. Respect the licence of any dataset you use.
-
-## 7. Goal
+## 5. Goal
 
 Build a Decision Tree classifier that you can explain from its first entropy calculation to its final prediction. The focus is not only on achieving good accuracy, but also on understanding how the model makes decisions and how it generalizes to unseen data.
 
